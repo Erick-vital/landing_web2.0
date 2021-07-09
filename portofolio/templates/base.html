@@ -1,0 +1,222 @@
+<title>{% block title %} Titulo {% endblock %}</title>
+{% load static %}
+{% load widget_tweaks %}
+
+
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css" />
+
+	<!-- Freelancer Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'demos/freelancer/css/fonts.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'demos/freelancer/freelancer.css' %}" type="text/css" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="{% static 'css/colors.php?color=f7c25e' %}" type="text/css" />
+
+	<!-- Document Title
+	============================================= -->
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="border-bottom-0 no-sticky transparent-header">
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo">
+							<a href="{% url 'index' %}" class="standard-logo"><img src="{% static 'demos/freelancer/images/logo.png' %}" alt="Canvas Logo"></a>
+							<a href="demo-freelancer.html" class="retina-logo"><img src="{% static 'demos/freelancer/images/logo@2x.png' %}" alt="Canvas Logo"></a>
+						</div><!-- #logo end -->
+
+						<div class="header-misc">
+							<a href="mailto:noreply@canvas.com" class="button button-border rounded-pill">Email Us</a>
+						</div>
+
+						<div id="primary-menu-trigger">
+							<svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu">
+
+							<ul class="menu-container">
+								<li class="menu-item"><a class="menu-link" href="{% url 'about' %}"><div>Conocenos</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="#" data-scrollto="#footer" data-easing="easeInOutExpo" data-speed="1250" data-offset="70"><div>Contact</div></a></li>
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+					</div>
+				</div>
+			</div>
+		</header><!-- #header end -->
+
+{% block content %}{% endblock %}
+
+<!-- Footer
+		============================================= -->
+		<footer id="footer" class="border-0" style="background-color: #C9D6CF;">
+
+			<div class="container">
+				<div class="footer-widgets-wrap  m-0">
+
+					<div class="row justify-content-between">
+
+						<div class="col-md-4">
+							<div class="widget">
+
+								<h3 class="h1 mb-5">¿Tienes un proyecto?<br>Hablemos!</h3>
+								<span class="text-black-50">Envianos un mensaje a nuestro correo o hazlo directamente desde esta web</span>
+								<a href="mailto:noreply@canvas.com" class="h4 text-dark mt-5 mb-4 d-block"><u>noreply@canvas.com</u> <i class="icon-line-arrow-right position-relative ms-2" style="top: 3px"></i></a>
+								<div>
+									<a href="http://facebook.com/semicolonweb" class="social-icon si-small si-colored si-facebook" target="_blank">
+										<i class="icon-facebook"></i>
+										<i class="icon-facebook"></i>
+									</a>
+									<a href="http://instagram.com/semicolonweb" class="social-icon si-small si-colored si-instagram" target="_blank">
+										<i class="icon-instagram"></i>
+										<i class="icon-instagram"></i>
+									</a>
+									<a href="http://youtube.com/semicolonweb" class="social-icon si-small si-colored si-youtube" target="_blank">
+										<i class="icon-youtube"></i>
+										<i class="icon-youtube"></i>
+									</a>
+									<a href="#" class="social-icon si-small si-colored si-flattr">
+										<i class="icon-flattr"></i>
+										<i class="icon-flattr"></i>
+									</a>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="col-md-5">
+							<h3 class="h1 mb-5">Contactanos</h3>
+							<div class="form-widget" data-loader="button" data-alert-type="inline">
+
+								<div class="form-result"></div>
+
+								<form id="formulario" class="row mb-0" action="/" method="POST" >
+									{% csrf_token %}
+									<div class="form-process"></div>
+									<div class="col-12 form-group mb-4">
+										<label>Cual es tu nombre:</label>
+										{% render_field form.nombre class+="form-control border-form-control required" %}
+									</div>
+									<div class="col-12 form-group mb-4">
+										<label>Tu correo electronico</label>
+										{% render_field form.correo class+="form-control border-form-control required" %}
+									</div>
+									<div class="col-12 form-group mb-4">
+										<label>Cuentame sobre tu proyecto</label>
+										{% render_field form.mensaje class+="form-control border-form-control required" type="textarea" %}
+									</div>
+									<div class="col-12 d-none">
+										<input type="text" id="landing-enquiry-botcheck" name="landing-enquiry-botcheck" value="" />
+									</div>
+									<div class="col-12">
+										<button id="boton" type="submit" name="landing-enquiry-submit" class="button h-translatey-3 bg-dark rounded-pill"><i class="icon-line-arrow-right m-0"></i></button>
+									</div>
+
+									<input type="hidden" name="prefix" value="landing-enquiry-">
+								</form>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</footer><!-- #footer end -->
+<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-double-angle-up bg-white text-dark rounded-circle shadow"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/plugins.min.js' %}"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="{% static 'js/functions.js' %}"></script>
+
+	<!-- Script para el formulario 
+	============================================= -->
+	<script>
+	// siguiendo este tutorial: https://www.brennantymrak.com/articles/fetching-data-with-ajax-and-django.html
+
+	var boton = document.getElementById('boton')
+
+	boton.addEventListener('click', function(e) {
+    var formulario = new FormData(document.getElementById('formulario'))
+    e.preventDefault()
+    
+    fetch('/', {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: formulario,
+        headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest', //Necessary to work with request.is_ajax()
+            'X-CSRFToken': csrftoken,
+        }
+    })
+
+		const form = document.getElementById('formulario')
+		alert('mensaje enviado, nos comunicaremos contigo lo mas pronto posible')
+		form.reset()
+		console.log(nombre)
+	})
+
+	function getCookie(name) {
+		let cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+			const cookies = document.cookie.split(';');
+			for (let i = 0; i < cookies.length; i++) {
+				const cookie = cookies[i].trim();
+				// Does this cookie string begin with the name we want?
+				if (cookie.substring(0, name.length + 1) === (name + '=')) {
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+	const csrftoken = getCookie('csrftoken');
+
+	
+
+	</script>
+    </body>
